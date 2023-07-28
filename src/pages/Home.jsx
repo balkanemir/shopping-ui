@@ -64,7 +64,9 @@ const Button = styled.button`
   border: 1px solid #00b4d8;
   background-color: #0077b6;
   cursor: pointer;
-  display: ${(props) => (props.isOnTop ? "none" : "block")};
+  display: ${(props) => (props.isOnTop ? "none" : "flex")};
+  justify-content: center;
+  align-items: center;
   animation: ${TopButtonAnimation} 0.5s ease;
   @media (max-width: 850px) {
     width: 50px;
@@ -83,29 +85,30 @@ const Content = styled.div`
 `;
 
 const Alert = styled.div`
-  width: 80vw;
+  width: 90vw;
   height: 50px;
   border: 1px solid white;
   background-color: white;
   position: fixed;
   bottom: 30px;
-  margin: 0 10vw 0 10vw;
+  margin: 0 3vw 0 3vw;
   z-index: 3;
   animation: ${TopButtonAnimation} 0.5s ease;
   display: ${(props) => (props.isMoved && props.isDisplay ? "flex" : "none")};
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 2vw;
   font-size: 14px;
   background-color: #00b4d8;
   color: white;
   @media (max-width: 850px) {
-    width: 80vw;
+    width: 90vw;
     height: 50px;
     font-size: 12px;
   }
   @media (max-width: 500px) {
     width: 80vw;
+    margin: 0 8vw 0 8vw;
     height: 100px;
     font-size: 10px;
     flex-direction: column;

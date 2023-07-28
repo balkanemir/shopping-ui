@@ -16,6 +16,7 @@ const Container = styled.div`
   @media (max-width: 500px) {
     height: 80vh;
     flex-direction: column;
+    padding: 10px;
   }
   @media (max-width: 360px) {
     justify-content: space-evenly;

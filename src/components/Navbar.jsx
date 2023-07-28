@@ -84,9 +84,7 @@ const SearchContainer = styled.div`
   }
 `;
 
-const Input = styled.input.attrs({
-  autoFocus: true,
-})`
+const Input = styled.input`
   border: none;
   background-color: transparent;
   width: 100%;
