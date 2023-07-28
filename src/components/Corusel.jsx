@@ -36,7 +36,7 @@ const Container = styled.div`
     height: 30vh;
   }
 `;
-const Arrow = styled.div`
+const ArrowLeftContainer = styled.div`
   width: 50px;
   height: 50px;
   display: flex;
@@ -48,8 +48,7 @@ const Arrow = styled.div`
   align-items: center;
   opacity: 0.5;
   transition: all 0.5s ease-out;
-  left: ${(props) => props.direction === "left" && "10px"};
-  right: ${(props) => props.direction === "right" && "10px"};
+  left: 10px;
   z-index: 1;
   &:hover {
     transform: scale(1.2);
@@ -71,6 +70,42 @@ const Arrow = styled.div`
     height: 20px;
   }
 `;
+
+const ArrowRightContainer = styled.div`
+  width: 50px;
+  height: 50px;
+  display: flex;
+  position: absolute;
+  background-color: #efe3e3;
+  border-radius: 50%;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  opacity: 0.5;
+  transition: all 0.5s ease-out;
+  right: 10px;
+  z-index: 1;
+  &:hover {
+    transform: scale(1.2);
+  }
+  @media (max-width: 1125px) {
+    width: 40px;
+    height: 40px;
+  }
+  @media (max-width: 850px) {
+    width: 35px;
+    height: 35px;
+  }
+  @media (max-width: 640px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media (max-width: 450px) {
+    width: 20px;
+    height: 20px;
+  }
+`;
+
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
@@ -256,13 +291,13 @@ const Corusel = () => {
   }, [slideIndex]);
   return (
     <Container>
-      <Arrow
+      <ArrowLeftContainer
         direction="left"
         refresh={refreshing}
         onClick={() => handleClick("left")}
       >
         <ArrowLeft />
-      </Arrow>
+      </ArrowLeftContainer>
       <Wrapper slideIndex={slideIndex}>
         {SliderItems.map((item) => (
           <Slide>
@@ -276,9 +311,12 @@ const Corusel = () => {
           </Slide>
         ))}
       </Wrapper>
-      <Arrow direction="right" onClick={() => handleClick("right")}>
+      <ArrowRightContainer
+        direction="right"
+        onClick={() => handleClick("right")}
+      >
         <ArrowRight />
-      </Arrow>
+      </ArrowRightContainer>
     </Container>
   );
 };
